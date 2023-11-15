@@ -15,17 +15,15 @@ function addTask() {
 	inputBox.value = "";
 	saveData();
 }
-
 listContainer.addEventListener("click", (e) => {
-	if (e.target.tagName === "LI") {
+	if (e.target.nodeName === "LI") {
 		e.target.classList.toggle("checked");
 		saveData();
-	} else if (e.target.tagName === "SPAN"){
+	} else if (e.target.nodeName === "SPAN") {
 		e.target.parentElement.remove();
 		saveData();
 	}
-},false);
-
+ },false);
 function saveData() {
 	localStorage.setItem("data", listContainer.innerHTML);
 }
